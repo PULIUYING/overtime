@@ -1,0 +1,7 @@
+[functions.manage-users]
+verify_jwt = false
+# 函数内部使用 auth.getUser 验证真实登录令牌，并查询数据库 root 角色。
+
+[functions.mode-login]
+verify_jwt = false
+# 登录端点通过 Supabase Auth 校验对应状态的密码，不授予匿名数据库权限。
