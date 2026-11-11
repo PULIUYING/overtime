@@ -264,4 +264,9 @@ end;
 $$;
 create trigger audit_companies after insert or update on public.companies for each row execute function public.audit_company_change();
 
+-- Explicit backend privileges when automatic table exposure is disabled.
+ grant select,update on public.profiles to service_role;
+ grant select,insert on public.audit_logs to service_role;
+ grant usage,select on sequence public.audit_logs_id_seq to service_role;
 commit;
+
